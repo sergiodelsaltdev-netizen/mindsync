@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindSync | Sincroniza tu mundo | Sergio Delsalt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00d2ff; /* Azul Eléctrico */
+            --secondary: #9d50bb; /* Violeta Neón */
+            --dark-bg: #0b0e14; /* Fondo Oscuro */
+            --text-dark: #333;
+            --text-light: #fff;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL DIVIDIDO --- */
+        .split-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- LADO IZQUIERDO: OSCURO Y LOGO --- */
+        .left-side {
+            flex: 1; /* Toma la mitad del ancho */
+            background-color: var(--dark-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        /* Efecto de Aura sutil en el fondo izquierdo */
+        .aura {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(var(--primary), var(--secondary));
+            filter: blur(120px);
+            opacity: 0.15;
+            z-index: 0;
+            border-radius: 50%;
+        }
+
+        .logo-container {
+            z-index: 1;
+            text-align: center;
+        }
+
+        /* Usamos el logo que generamos, con degradado */
+        .logo-symbol {
+            font-size: 5rem;
+            font-weight: 700;
+            letter-spacing: -3px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-light);
+            letter-spacing: -1px;
+            margin: 0;
+        }
+
+        .author-text {
+            font-size: 0.8rem;
+            opacity: 0.5;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        /* --- LADO DERECHO: BLANCO Y LOGIN --- */
+        .right-side {
+            flex: 1; /* Toma la otra mitad del ancho */
+            background-color: #ffffff; /* FONDO BLANCO */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-dark);
+        }
+
+        .login-box {
+            width: 350px;
+            padding: 40px;
+            /* Agregamos una sombra suave para separarlo del fondo */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 16px;
+            background: #fff;
+            border: 1px solid #f0f0f0;
+        }
+
+        .login-box h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            letter-spacing: -1px;
+        }
+
+        .login-box p {
+            margin: 0 0 30px 0;
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* --- ESTILOS DE FORMULARIO MODERNO --- */
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box; /* Importante para el padding */
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.1);
+        }
+
+        button.submit-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        button.submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* --- RESPONSIVO: PARA CELULARES --- */
+        @media (max-width: 768px) {
+            .split-container {
+                flex-direction: column;
+            }
+            .left-side, .right-side {
+                flex: none;
+                height: 50vh;
+                width: 100%;
+            }
+            .login-box {
+                width: 80%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="split-container">
+        
+        <div class="left-side">
+            <div class="aura"></div>
+            <div class="logo-container">
+                <div class="logo-symbol">SD</div>
+                <h1 class="logo-text">MindSync</h1>
+                <p class="author-text">by Sergio Delsalt</p>
+            </div>
+        </div>
+
+        <div class="right-side">
+            <div class="login-box">
+                <h2>Bienvenido</h2>
+                <p>Ingresa tus credenciales para sincronizar.</p>
+                
+                <form>
+                    <div class="input-group">
+                        <label for="username">Usuario</label>
+                        <input type="text" id="username" name="username" placeholder="sergio_ds" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" name="password" placeholder="••••••••" required>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Sincronizar</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
