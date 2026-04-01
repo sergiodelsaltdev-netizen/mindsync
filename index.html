@@ -26,8 +26,12 @@
         /* --- CONTENEDOR PRINCIPAL DIVIDIDO --- */
         .split-container {
             display: flex;
-            width: 100%;
-            height: 100%;
+            /*width: 100%;*/
+            /*height: 100%;*/
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
         }
 
         /* --- LADO IZQUIERDO: OSCURO Y LOGO --- */
@@ -87,6 +91,7 @@
 
         /* --- LADO DERECHO: BLANCO Y LOGIN --- */
         .right-side {
+            position: relative;
             flex: 1; /* Toma la otra mitad del ancho */
             background-color: #ffffff; /* FONDO BLANCO */
             display: flex;
@@ -166,6 +171,18 @@
             opacity: 0.9;
         }
 
+        .login-footer {
+            position: absolute;
+            bottom: 20px; /* Distancia del piso de la pantalla */
+            color: #999;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            width: 100%; /* Para asegurar que el centrado funcione */
+            left: 0;
+        }
+
         /* --- RESPONSIVO: PARA CELULARES --- */
         @media (max-width: 768px) {
             .split-container {
@@ -190,7 +207,7 @@
         <div class="left-side">
             <div class="aura"></div>
             <div class="logo-container">
-                <div class="logo-symbol">SD</div>
+                <img src="assets/logo-mindsync.png" alt="Logo MindSync" style="width: 180px; margin-bottom: 20px;">
                 <h1 class="logo-text">MindSync</h1>
                 <p class="author-text">by Sergio Daniel Delsalt</p>
             </div>
@@ -199,12 +216,12 @@
         <div class="right-side">
             <div class="login-box">
                 <h2>Bienvenido</h2>
-                <p>Ingresa tus credenciales para sincronizar.</p>
+                <p>Ingresa tus credenciales para acceder.</p>
                 
                 <form>
                     <div class="input-group">
                         <label for="username">Usuario</label>
-                        <input type="text" id="username" name="username" placeholder="sergio_ds" required>
+                        <input type="text" id="username" name="username" placeholder="tu_usuario" required>
                     </div>
                     
                     <div class="input-group">
@@ -212,9 +229,15 @@
                         <input type="password" id="password" name="password" placeholder="••••••••" required>
                     </div>
                     
-                    <button type="submit" class="submit-btn">Sincronizar</button>
+                    <button type="submit" class="submit-btn">Ingresar</button>
+
+                    <p>Gracias por confiar en nosotros</p>
                 </form>
+                <footer class="login-footer">
+                    &copy; 2026 Sergio Delsalt Site
+                </footer>
             </div>
+            
         </div>
 
     </div>
